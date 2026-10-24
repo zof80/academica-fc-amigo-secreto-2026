@@ -57,6 +57,15 @@ button {
 button:hover {
     background-color: #3498db;
 }
+/* Centralizar o texto de apresentação */
+body > p {
+    text-align: center;
+}
+
+/* Centralizar os títulos */
+h1, h2, h3 {
+    text-align: center;
+}
 
 
 
