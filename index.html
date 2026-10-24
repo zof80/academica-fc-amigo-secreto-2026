@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Académica F.C. 2026 - Amigo Secreto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="cabecalho">
+        <img src="simbolo_afc_1984.jpg" alt=""Simbolo da Académica F.C." class="logo">
+    </div>
+    <h1>ACADÉMICA F.C. 2026</h1>
+    <H2>Amigo Secreto - Troca de Presentes</H2>
+
+    <p>Uma iniciativa de amizade, união e confraternização entre associados e convidados.</p>
+    
+    <h3>Formulário de Inscrição</h3>
+
+    <form id="formInscricao">
+        <label for="nome">Nome completo:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <br><br>
+
+        <label for="contacto">Contacto (whatsApp ou telemóvel):</label>
+        <input type="tel" id="contacto" name="contacto" required>
+
+        
+        <br><br>
+
+        <label for="pais">País de residência:</label>
+
+        <select id="pais" name="pais" required>
+            <option value="">Selecione o país</option>
+            <option value="Portugal">Portugal</option>
+            <option value="França">França</option>
+            <option value="Guiné-Bissau">Guiné-Bissau</option>
+            <option value="Espanha">Espanha</option>
+            <option value="Reino Unido">Reino Unido</option>
+            <option value="Suíça">Suíça</option>
+            <option value="Alemanha">Alemanha</option>
+            <option value="Outro">Outro</option>
+        </select>
+
+        
+        <br><br>
+
+        <label>Tipo de participante:</label>
+        <br>
+
+        <input type="radio" id="associado" name="tipo" value="Associado" required>
+        <label for="associado">Associado do grupo</label>
+
+        <br>
+
+        <input type="radio" id="convidado" name="tipo" value="Convidado" required>
+        <label for="convidado">Convidado (participou no Piquenique)</label>
+
+        <br><br>
+
+        <button type="submit">Inscrever-me</buttom>
+
+    </form>
+    <h3>Participantes inscritos</h3>
+    <p id="totalParticipantes">Total de inscritos: 0</p>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+   
+</body>
+</html>
