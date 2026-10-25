@@ -100,6 +100,28 @@ h1, h2, h3 {
     background-color: #f2f7fb;
 }
 
+/* Adaptar a tabela aos telemóveis */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .tabela-inscritos {
+        padding: 10px;
+        overflow-x: auto;
+    }
+
+    .tabela-inscritos table {
+        min-width: 650px;
+    }
+
+    .tabela-inscritos th,
+    .tabela-inscritos td {
+        padding: 8px;
+        font-size: 13px;
+    }
+}
+
 
 
 
