@@ -1,6 +1,6 @@
 const SUPABASE_URL = "https://xuncbqmubvudysqfxqua.supabase.co";
 
-const SUPABASE_KEY = "sb_publishable_dW3kORv90amttLJ_F87T9Q_fgMf-tN3";
+const SUPABASE_KEY = "sb_publishable_9t3-LBZYf11VumzoZMoaaQ_jdLtu36D";
 
 const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
@@ -30,8 +30,43 @@ async function atualizarTotalParticipantes() {
 
     totalParticipantes.textContent = "Total de inscritos: " + data;
 }
+async function atualizarListaInscritos() {
+    const lista = document.getElementById("listaInscritos");
+
+    const { data, error } = await supabaseClient.rpc(
+        "listar_inscritos_publicos"
+    );
+
+    if (error) {
+        console.error("Erro ao consultar inscritos:", error);
+        return;
+    }
+
+    lista.replaceChildren();
+
+    data.forEach(function(participante, indice) {
+        const linha = document.createElement("tr");
+
+        const valores = [
+            indice + 1,
+            participante.nome,
+            participante.pais,
+            participante.continente,
+            participante.tipo_participante
+        ];
+
+        valores.forEach(function(valor) {
+            const coluna = document.createElement("td");
+            coluna.textContent = valor;
+            linha.appendChild(coluna);
+        });
+
+        lista.appendChild(linha);
+    });
+}
 
 atualizarTotalParticipantes();
+atualizarListaInscritos();
 
 formulario.addEventListener("submit", async function(evento) {
     evento.preventDefault();
@@ -51,8 +86,7 @@ formulario.addEventListener("submit", async function(evento) {
     if (!/^\+[1-9]\d{7,14}$/.test(contacto)) {
     alert("Introduz o contacto com indicativo internacional. Exemplo: +245987567890 ou 00245987567890.");
     return;
-    }   
-    console.log("Contacto do participante:", contacto);
+    }
     const associado = document.getElementById("associado").checked;
     console.log("É associado?", associado);
     if (associado) {
@@ -88,4 +122,5 @@ formulario.addEventListener("submit", async function(evento) {
     formulario.reset();
 
     await atualizarTotalParticipantes();
+    await atualizarListaInscritos();
     });
