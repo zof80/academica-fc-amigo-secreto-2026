@@ -61,8 +61,20 @@ async function atualizarListaInscritos() {
             linha.appendChild(coluna);
         });
 
-        lista.appendChild(linha);
+                lista.appendChild(linha);
     });
+
+    // Contar associados e convidados
+    const associados = data.filter(
+        p => p.tipo_participante === "Associado"
+    ).length;
+
+    const convidados = data.filter(
+        p => p.tipo_participante === "Convidado"
+    ).length;
+
+    document.getElementById("resumoParticipantes").textContent =
+        `Associados: ${associados} | Convidados: ${convidados}`;
 }
 
 atualizarTotalParticipantes();
