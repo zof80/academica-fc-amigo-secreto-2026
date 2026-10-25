@@ -67,6 +67,39 @@ h1, h2, h3 {
     text-align: center;
 }
 
+/* Apresentação da tabela de participantes */
+
+.tabela-inscritos {
+    max-width: 1000px;
+    margin: 25px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    overflow-x: auto;
+}
+
+.tabela-inscritos table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.tabela-inscritos th,
+.tabela-inscritos td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabela-inscritos th {
+    background-color: #3498db;
+    color: white;
+}
+
+.tabela-inscritos tr:nth-child(even) {
+    background-color: #f2f7fb;
+}
+
 
 
 
