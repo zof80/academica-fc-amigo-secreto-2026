@@ -139,8 +139,7 @@ formulario.addEventListener("submit", async function(evento) {
 
 
  // Encerramento automático das inscrições
-const dataEncerramento = new Date("2026-11-01T00:00:00Z");
-
+const dataEncerramento = new Date("2026-10-31T00:00:00Z");
 function verificarEncerramento() {
     const formulario = document.getElementById("formInscricao");
     const mensagem = document.getElementById("mensagemEncerramento");
