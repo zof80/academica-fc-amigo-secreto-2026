@@ -136,3 +136,24 @@ formulario.addEventListener("submit", async function(evento) {
     await atualizarTotalParticipantes();
     await atualizarListaInscritos();
     });
+
+
+ // Encerramento automático das inscrições
+const dataEncerramento = new Date("2026-11-01T00:00:00Z");
+
+function verificarEncerramento() {
+    const formulario = document.getElementById("formInscricao");
+    const mensagem = document.getElementById("mensagemEncerramento");
+
+    if (new Date() >= dataEncerramento) {
+        formulario.style.display = "none";
+        mensagem.style.display = "block";
+    } else {
+        formulario.style.display = "block";
+        mensagem.style.display = "none";
+    }
+}
+
+verificarEncerramento();
+setInterval(verificarEncerramento, 1000);
+
